@@ -3,18 +3,14 @@ import {Domlistener} from '@module/domlistener';
 export class Tabs extends Domlistener {
     constructor(el) {
         super(el);
-        // console.log(this.el);
         this.changeElem(this);
     } 
 
     changeElem(el) {
         this.addListener(this.el, 'click');
-        // console.log(this);
     }
 
     getElem(event) {
-        // console.log(this.$target.dataset);
-        console.dir(this.$target.dataset.tabsHandler);
         if (this.$target.dataset.tabsHandler) {
             const tabsHandler = this.el.querySelectorAll('[data-tabs-handler]');
             tabsHandler.forEach( (tab) => {
@@ -35,9 +31,5 @@ export class Tabs extends Domlistener {
                 }
             });
         }
-        // this.el.querySelectorAll(`[data-tabs-field = 
-        //     '${this.$target.dataset.tabsHandler}']`);
-        // this.el.querySelectorAll(`[${this.$target.dataset.tabsHandler}]`);
-        // console.log(tabs);
     }
 }

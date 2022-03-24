@@ -22,8 +22,9 @@ export class Feature extends Domlistener {
             });
             const btn = this.$target.closest('.feature__link');
             btn.classList.add('feature__link_active');
-            btn.nextElementSibling.classList.remove('hidden');
+            btn.nextElementSibling.classList.contains('feature-sub') 
+            ? btn.nextElementSibling.classList.remove('hidden')
+            : '';
         }
-        console.log(this);
     }
 }
