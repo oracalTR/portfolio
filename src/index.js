@@ -1,3 +1,7 @@
-import {tabs} from '@module/tabs';
+import {Tabs} from '@module/tabs';
 
-tabs();
+
+// Tabs
+new Tabs('.design-wrapper');
+// Feature
+
