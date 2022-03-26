@@ -7,6 +7,7 @@ export class Domlistener extends Domelem {
 
     addListener(el, action) {
         el.addEventListener(action, (event) => {
+            event.preventDefault();
             const target = event.target;
             this.$target = target;
             this.getElem(this);
