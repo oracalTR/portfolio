@@ -31,5 +31,10 @@ export class Tabs extends Domlistener {
                 }
             });
         }
+        
+        if (this.$target.closest('.more')) {
+            const modal = document.querySelector('.modal');
+            modal.classList.remove('hidden');
+        }
     }
 }
