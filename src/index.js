@@ -2,6 +2,7 @@ import {Menu} from '@module/menu';
 import {Tabs} from '@module/tabs';
 import {Feature} from '@module/feature';
 import {Modal} from '@module/modal';
+import {Discount} from '@module/discount';
 
 // Menu and ScrollButton
 new Menu('.header-wrapper');
@@ -13,3 +14,5 @@ new Tabs('.design-wrapper');
 new Feature('.feature-wrapper');
 // Modal
 new Modal('.modal');
+// Discount
+new Discount('.timer__time');
