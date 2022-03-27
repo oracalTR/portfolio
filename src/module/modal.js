@@ -11,7 +11,6 @@ export class Modal extends Domlistener {
     }
 
     getElem(event) {
-        console.log(this);
         if (this.$target.classList.contains('overlay') 
         || this.$target.classList.contains('modal__close')) {
             this.el.classList.add('hidden');

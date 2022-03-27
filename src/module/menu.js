@@ -13,7 +13,7 @@ export class Menu extends Domlistener {
     getElem(elem) {
         const navMenu = this.el.querySelector('.menu');
 
-        if (this.$target.closest('.menu-list__item') 
+        if (this.$target.closest('.menu-list__link') 
         || this.$target.closest('.main__scroll') 
         || this.$target.closest('.main__button')
         || this.$target.closest('.logo__img')) {

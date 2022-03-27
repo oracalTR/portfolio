@@ -34,6 +34,7 @@
     "normalize.css": "^8.0.1",
     "regenerator-runtime": "^0.13.9",
     "seamless-scroll-polyfill": "^2.1.6",
+    "smoothscroll-polyfill": "^0.4.4",
     "swiper": "^7.4.1"
   }
 }
