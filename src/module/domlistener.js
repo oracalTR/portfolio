@@ -6,11 +6,20 @@ export class Domlistener extends Domelem {
     }
 
     addListener(el, action) {
-        el.addEventListener(action, (event) => {
-            event.preventDefault();
-            const target = event.target;
-            this.$target = target;
-            this.getElem(this);
-        });
+        if (action == 'click' || action == 'input') {
+            el.addEventListener(action, (event) => {
+                event.preventDefault();
+                const target = event.target;
+                this.$target = target;
+                this.getElem(this);
+            });
+        } else if (action == 'submit') {
+            el.addEventListener(action, (event) => {
+                event.preventDefault();
+                this.resetForm(this);
+                // const target = event.target;
+                // this.$target = target;
+            });
+        }
     }
 }
