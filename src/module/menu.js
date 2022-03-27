@@ -32,11 +32,19 @@ export class Menu extends Domlistener {
             //     block: 'start'
             // });
         }
-        // Нужно доработатьзакрытие меню при клике на body
         if (this.$target.closest('.humburger-menu')) {
-            navMenu.style.top = 0 + 'px';
-        } else if (this.$target.closest('.menu-list')) {
+            if (!navMenu.offsetTop == 0) {
+                navMenu.style.top = 0 + 'px';
+                this.timeout = setTimeout( () => {
+                    navMenu.style.top = -300 + 'px';
+                }, 10000);
+            } else {
+                navMenu.style.top = -300 + 'px';
+                clearTimeout(this.timeout);
+            }
+        } else if (this.$target.closest('.menu-list__link')) {
             navMenu.style.top = -300 + 'px';
+            clearTimeout(this.timeout);
         }
     }
 }
