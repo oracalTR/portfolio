@@ -1,4 +1,6 @@
 import {Domlistener} from '@module/domlistener';
+// Полифил для пя плавного скролла в Safari
+import {elementScrollIntoView} from 'seamless-scroll-polyfill';
 
 export class Menu extends Domlistener {
     constructor(el) {
@@ -18,10 +20,17 @@ export class Menu extends Domlistener {
         || this.$target.closest('.main__button')
         || this.$target.closest('.logo__img')) {
             const url = this.$target.hash || this.$target.parentNode.hash;
-            document.querySelector(url).scrollIntoView({
+            const section = document.querySelector(url);
+            console.log(section);
+            // Реализация плавного скролла в Safari
+            elementScrollIntoView(section, {
                 behavior: 'smooth',
                 block: 'start'
             });
+            // document.querySelector(url).scrollIntoView({
+            //     behavior: 'smooth',
+            //     block: 'start'
+            // });
         }
         // Нужно доработатьзакрытие меню при клике на body
         if (this.$target.closest('.humburger-menu')) {
