@@ -13,8 +13,6 @@ new Menu('.main__button');
 new Tabs('.design-wrapper');
 // Feature
 new Feature('.feature-wrapper');
-// Modal
-new Modal('.modal');
 // Discount
 new Discount('.timer__time');
 // SendForm
@@ -22,3 +20,5 @@ new Discount('.timer__time');
 new Sendform('.modal__form');
 // formTestDrive
 new Sendform('.form-test-drive');
+// Modal
+new Modal('.modal');
