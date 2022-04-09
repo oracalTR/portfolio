@@ -1,4 +1,5 @@
 import {Domlistener} from '@module/domlistener';
+import {RegExp} from '@module/regexp';
 
 export class Sendform extends Domlistener {
     constructor(el) {
@@ -12,13 +13,21 @@ export class Sendform extends Domlistener {
     }
 
     getElem(elem) {
+        const errorValue = new RegExp().checkValue(this.$target);
+        console.log(errorValue);
         this[this.$target.name] = this.$target.value;
-        // console.log(this);
+        this[this.$target.name + 'Err'] = errorValue;
+        console.log(this);
     }
 
     resetForm(elem) {
-        this.formBody(this);
-        this.el.reset();
+        const err = !this.nameErr && !this.mailErr && !this.phoneErr 
+        ? true : false;
+        console.log(err);
+        if (err) {
+            this.formBody(this);
+            this.el.reset();
+        }
     }
 
     formBody(data) {
