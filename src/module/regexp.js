@@ -1,7 +1,5 @@
 export class RegExp {
     checkValue(value) {
-        console.log(this);
-        console.log(value);
         const div = document.createElement('div');
         div.style.color = '#FF9983';
         div.style.fontSize = 12 + 'px';
@@ -24,7 +22,6 @@ export class RegExp {
             value.style.backgroundColor = '#fff';
             value.style.color = 'red';
             const divErr = value.previousSibling;
-            console.log(divErr);
             if (divErr.id != 'err') {
                 value.insertAdjacentElement('beforebegin', div);
             }
@@ -36,7 +33,6 @@ export class RegExp {
             if (divErr.id == 'err') {
                 divErr.remove();
             }
-            // value.reviousSibling.remove();
             return false;
         }
     }
