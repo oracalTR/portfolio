@@ -21,9 +21,22 @@ export class Sendform extends Domlistener {
     resetForm(elem) {
         const err = !this.nameErr && !this.mailErr && !this.phoneErr 
         ? true : false;
+        let timer;
         if (err) {
             this.formBody(this);
             this.el.reset();
+            this.el.insertAdjacentHTML('afterend', `
+            <div id='send'>Спасибо! Ваши данные отправлены!</div>
+            `);
+            timer = setTimeout( () => {
+                console.log(this.el.closest('.modal'));
+                const divSend = document.getElementById('send');
+                divSend ? divSend.remove() : '';
+                if (this.el.closest('.modal')) {
+                    this.el.closest('.modal').classList.add('hidden');
+                }
+                clearTimeout(timer);
+            }, 2000);
         }
     }
 
