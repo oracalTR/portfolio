@@ -36,7 +36,7 @@ export class Sendform extends Domlistener {
                     this.el.closest('.modal').classList.add('hidden');
                 }
                 clearTimeout(timer);
-            }, 2000);
+            }, 2500);
         }
     }
 
