@@ -21,7 +21,6 @@ export class Menu extends Domlistener {
         || this.$target.closest('.logo__img')) {
             const url = this.$target.hash || this.$target.parentNode.hash;
             const section = document.querySelector(url);
-            console.log(section);
             // Реализация плавного скролла в Safari
             elementScrollIntoView(section, {
                 behavior: 'smooth',

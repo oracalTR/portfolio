@@ -24,6 +24,10 @@ module.exports = (env, argv) => {
                   from: path.resolve(__dirname, 'src', 'css'),
                   to: path.resolve(__dirname, 'dist', 'css')
                 },
+                {
+                  from: path.resolve(__dirname, 'src', 'php'),
+                  to: path.resolve(__dirname, 'dist', 'php')
+                },
             ],
           }),
           new MiniCssExtractPlugin({
@@ -65,7 +69,6 @@ module.exports = (env, argv) => {
               {
                 test: /\.s[ac]ss$/i,
                 use: [
-                  // Creates `style` nodes from JS strings
                   MiniCssExtractPlugin.loader,
                   // Translates CSS into CommonJS
                   'css-loader',

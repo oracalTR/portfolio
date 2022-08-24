@@ -29,7 +29,6 @@ export class Sendform extends Domlistener {
             <div id='send'>Спасибо! Ваши данные отправлены!</div>
             `);
             timer = setTimeout( () => {
-                console.log(this.el.closest('.modal'));
                 const divSend = document.getElementById('send');
                 divSend ? divSend.remove() : '';
                 if (this.el.closest('.modal')) {
@@ -42,11 +41,30 @@ export class Sendform extends Domlistener {
 
     formBody(data) {
         const formbody = {};
+        for (const key in data) {
+            if (key == 'name' || key == 'mail' || key == 'phone') {
+                formbody[key] = data[key];
+                // formbody = formbody ? `${formbody}&${key}=${data[key]}` 
+                // : `?${key}=${data[key]}`;
+                console.log(key, data[key]);
+            }
+        }
+        console.log(formbody);
+        console.log(JSON.stringify(data));
         console.log(data);
+        fetch('php/send.php', {
+            method: 'POST',
+            headers: {
+            'Content-Type': 'application/json;charset=utf-8'
+            },
+            body: JSON.stringify(formbody)})
+        .then((res) => {
+            console.log(res.json());
+        });
         // data.forEach(key, value => {
         //     formbody[key] = value;
         // });
-        console.log(formbody);
-        console.log('Отправка данных');
+        // console.log(formbody);
+        // console.log('Отправка данных');
     }
 }

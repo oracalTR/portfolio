@@ -22,7 +22,7 @@ export class RegExp {
             value.style.backgroundColor = '#fff';
             value.style.color = 'red';
             const divErr = value.previousSibling;
-            if (divErr.id != 'err') {
+            if (divErr == null) {
                 value.insertAdjacentElement('beforebegin', div);
             }
             return true;
@@ -30,7 +30,7 @@ export class RegExp {
             value.style.backgroundColor = '';
             value.style.color = '#fff';
             const divErr = value.previousSibling;
-            if (divErr.id == 'err') {
+            if (divErr != null && divErr.id == 'err') {
                 divErr.remove();
             }
             return false;
